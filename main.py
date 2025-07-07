@@ -7,15 +7,10 @@ July 6, 2025
 from ItemToPurchase import ItemToPurchase
 from ShoppingCart import ShoppingCart
 
-user_item_names = []
-user_item_quantities = []
-user_item_prices = []
+user_items = []
 
 # Function to obtain user inputs for two items as outlined in assignment (name, quantity, and price) try-except
 def user_inputs():
-    temp_name = ''
-    temp_quantity = 0
-    temp_price = 0
     print("Enter Two Items ✏✏")
     print("----------------------")
     for i in range(2):
@@ -24,9 +19,12 @@ def user_inputs():
                 temp_name = input("Enter the item name: ")
                 temp_quantity = int(input("Enter the item quantity: "))
                 temp_price = float(input("Enter the item price: "))
-                user_item_names.append(temp_name)
-                user_item_quantities.append(temp_quantity)
-                user_item_prices.append(temp_price)
+                temp_item_dict = {
+                    'user_item_name': temp_name,
+                    'user_item_quantity': temp_quantity,
+                    'user_item_price': temp_price,
+                }
+                user_items.append(temp_item_dict)
                 break
             except ValueError as e:
                 print(e, "Must enter a valid value.")
@@ -36,16 +34,16 @@ shopping_cart = ShoppingCart()
 
 # Creating first item object and adding to shopping cart
 item1 = ItemToPurchase()
-item1.set_item_name(user_item_names[0])
-item1.set_item_quantity(user_item_quantities[0])
-item1.set_item_price(user_item_prices[0])
+item1.set_item_name(user_items[0]['user_item_name'])
+item1.set_item_quantity(user_items[0]['user_item_quantity'])
+item1.set_item_price(user_items[0]['user_item_price'])
 shopping_cart.set_shopping_item(item1)
 
 #Creating second item object and adding to shopping cart
 item2 = ItemToPurchase()
-item2.set_item_name(user_item_names[1])
-item2.set_item_quantity(user_item_quantities[1])
-item2.set_item_price(user_item_prices[1])
+item2.set_item_name(user_items[1]['user_item_name'])
+item2.set_item_quantity(user_items[1]['user_item_quantity'])
+item2.set_item_price(user_items[1]['user_item_price'])
 shopping_cart.set_shopping_item(item2)
 
 shopping_list = shopping_cart.get_shopping_list()
