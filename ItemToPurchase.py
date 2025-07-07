@@ -1,3 +1,10 @@
+"""
+Item class with attributes for item name, price, quantity, and the total cost which is derived from the private
+calculate_cost method.
+Addition operator is overloaded to allow for two ItemToPurchase objects to be added together
+Basic setters and print item cost method
+"""
+
 class ItemToPurchase:
     def __init__(self):
         self.__item_name = "none"

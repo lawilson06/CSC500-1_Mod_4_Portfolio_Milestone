@@ -1,3 +1,5 @@
+# Basic preliminary framework for shopping cart class with shopping list and basic setter and getter methods
+
 class ShoppingCart:
     def __init__(self):
         self.__shopping_list = []
